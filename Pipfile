@@ -7,7 +7,11 @@ verify_ssl = true
 
 [packages]
 fastapi = "*"
-uvicorn = {extras = ["standard"], version = "*"}
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.8"
+
+[packages.uvicorn]
+extras = [ "standard",]
+version = "*"
