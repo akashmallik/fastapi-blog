@@ -15,3 +15,6 @@ python_version = "3.8"
 [packages.uvicorn]
 extras = [ "standard",]
 version = "*"
+
+[packages.passlib]
+extras = [ "bcrypt",]
