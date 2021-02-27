@@ -15,7 +15,6 @@ class Blog(Base):
     creator = relationship("User", back_populates="blogs")
 
 
-
 class User(Base):
     __tablename__ = 'users'
 
@@ -25,4 +24,3 @@ class User(Base):
     password = Column(String)
 
     blogs = relationship("Blog", back_populates="creator")
-
