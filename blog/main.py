@@ -36,7 +36,8 @@ def index(db: Session = Depends(get_db)):
 def create(request: schemas.Blog, db: Session = Depends(get_db)):
     blog = models.Blog(
         title=request.title,
-        body=request.body
+        body=request.body,
+        user_id=1
     )
 
     db.add(blog)
