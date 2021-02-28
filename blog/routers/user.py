@@ -2,9 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from starlette import status
 
-from .. import schemas, database
-from .. import models
-from ..hashing import Hash
+from .. import schemas, database, models, hashing
+
 
 router = APIRouter(
     prefix="/user",
@@ -17,7 +16,7 @@ def user(request: schemas.User, db: Session = Depends(database.get_db)):
     user = models.User(
         name=request.name,
         email=request.email,
-        password=Hash.bcrypt(request.password)
+        password=hashing.bcrypt(request.password)
     )
 
     db.add(user)
